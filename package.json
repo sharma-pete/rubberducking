@@ -1,0 +1,17 @@
+{
+  "name": "project-folder",
+  "version": "1.0.0",
+  "description": "a social media website project, that allows technology enthusiasts to connect",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Prathamesh, Aishwarya, Dinesh, Saumya, Sanket",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "handlebars": "^4.4.3",
+    "mongodb": "^3.3.3",
+    "node-uuid": "^1.4.8"
+  }
+}
