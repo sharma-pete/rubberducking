@@ -290,19 +290,19 @@ module.exports={
     updateUName
 }
 
-async function main(){
+// async function main(){
 
-    let manoj = await create("manoj", "salvi", "mrunal@gmail.com", "manu", "mimadhur!@#$1A")
-    console.log(manoj)
+//     let manoj = await create("manoj", "salvi", "mrunal@gmail.com", "manu", "mimadhur!@#$1A")
+//     console.log(manoj)
 
-    let andy = await create("john", "pimple", "heavymetalani@gmail.com", "heavymetalani", "hopesh!@#$1A")
-    console.log(andy)
+//     let andy = await create("john", "pimple", "heavymetalani@gmail.com", "heavymetalani", "hopesh!@#$1A")
+//     console.log(andy)
 
-    let atul = await create("atul", "kundan", "aakash@gmail.com", "pussydestroyer", "jaishivji!@#$1A")
-    console.log(atul)
+//     let atul = await create("atul", "kundan", "aakash@gmail.com", "pussydestroyer", "jaishivji!@#$1A")
+//     console.log(atul)
 
-    let pete = await create("petesh", "sherman", "protogdyt@gmail.com", "prothepsmesh", "mustdie!@#$1A")
-    console.log(pete)
+//     let pete = await create("petesh", "sherman", "protogdyt@gmail.com", "prothepsmesh", "mustdie!@#$1A")
+//     console.log(pete)
 
     // console.log(await getAll())
     // console.log(await get(pete._id.toString()))
@@ -310,16 +310,16 @@ async function main(){
     // console.log(await get(manoj._id.toString()))
     // console.log(await get(atul._id.toString()))
 
-    manojPost = await postsFile.create(manoj._id.toString(), "ganja", "ohhh ganja ganja ganja gun")
-    anyPost = await postsFile.create(andy._id.toString(), "dance", "i want to learn how to dance")
-    atulPost = await postsFile.create(atul._id.toString(), "i am amaze", "hey hi this is atul, how are you, i am pretty much good")
-    petePost = await postsFile.create(pete._id.toString(), "must die", "ishq hai ya gunha, kyaa keh raha tere jahan?")
+    // manojPost = await postsFile.create(manoj._id.toString(), "ganja", "ohhh ganja ganja ganja gun")
+    // anyPost = await postsFile.create(andy._id.toString(), "dance", "i want to learn how to dance")
+    // atulPost = await postsFile.create(atul._id.toString(), "i am amaze", "hey hi this is atul, how are you, i am pretty much good")
+    // petePost = await postsFile.create(pete._id.toString(), "must die", "ishq hai ya gunha, kyaa keh raha tere jahan?")
 
-    manojComm1 = await commentsFile.create(manoj._id.toString(), petePost._id.toString(), "pete comment")
-    manojComm2 = await commentsFile.create(manoj._id.toString(), atulPost._id.toString(), "atul comment")
-    manojComm3 = await commentsFile.create(manoj._id.toString(), anyPost._id.toString(), "andy comment")
+    // manojComm1 = await commentsFile.create(manoj._id.toString(), petePost._id.toString(), "pete comment")
+    // manojComm2 = await commentsFile.create(manoj._id.toString(), atulPost._id.toString(), "atul comment")
+    // manojComm3 = await commentsFile.create(manoj._id.toString(), anyPost._id.toString(), "andy comment")
 
-    await remove(manoj._id.toString())
+    // await remove(manoj._id.toString())
 
-}
-main()
+// }
+// main()
