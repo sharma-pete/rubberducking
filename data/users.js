@@ -1,5 +1,7 @@
+const bcrypt = require("bcrypt")
 const mongoCollections = require("../mongoColllection")
 const users = mongoCollections.users
+const posts = mongoCollections.posts
 const ObjectId = require('mongodb').ObjectID;
 
 async function get(id){
@@ -25,7 +27,6 @@ async function getAll(){
     const allUsers= await _users.find({}).toArray()
 
     return allUsers
-
 }
 
 async function remove(id){
@@ -43,35 +44,50 @@ async function remove(id){
     return removedUser
 }
 
-async function create(firstName, lastName, uName, pwd){
+async function create(firstName, lastName, emailID, uName, pwd){
     if(!firstName) throw "for create() you must provide first name"
     if(!lastName) throw "for create() you must provide last name"
     if(!uName) throw "for create() you must provide username"
     if(!pwd) throw "for create() you must provide a password"
+    if(!emailID) throw "for create() you must provide an email-id"
 
     if(typeof firstName != "string") throw "for create() first name isn't a string"
     if(typeof lastName != "string") throw "for create() last name isn't a string"
     if(typeof uName != "string") throw "for create() username must be a string"
+    if(typeof pwd!= "string") throw "for create() password must be string"
+    if(typeof emailID!= "string") throw "for create() email-id must be a string"
+
+    const salts = 16
 
     let newUser = {}
 
     const _users = await users()
 
     let unameAlreadyExists
-    let regExPwd=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+    let regExPwd =  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+    let regExUname = /^(?!.*\.\.)(?!.*\.$)[^\W][\w.]{0,29}$/;
+    let regExEmailID = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
     
-    acceptedPwd = ""
+    validPwd = ""
     acceptedUName = ""
+    acceptedEmailID = ""
+
+    if(regExEmailID.test(emailID)){
+        acceptedEmailID = emailID.toLowerCase()
+    }
+    else{
+        throw "email Id does not match specifications\n"+
+        "email must be comparable to 'user@example.com'"
+    }
 
     if(regExPwd.test(pwd)){
-        acceptedPwd=pwd
+        validPwd=pwd
     }
     else{
         throw "password doesnt satisfy all conditions\n"+
         "password between 8 to 15 characters which contain\n"+
         "at least one lowercase letter, one uppercase letter, one numeric digit, and one special character"
     }
-
 
     if(_users.length > 0){
         unameAlreadyExists = await _users.findOne({uName : uName})
@@ -81,25 +97,38 @@ async function create(firstName, lastName, uName, pwd){
         throw "Username is already taken, try another"
     }
 
-    acceptedUName = uName
+    if(regExUname.test(uName)){
+        acceptedUName = uName
+    }
+    else{
+        throw"username does not match specifications\n"+
+        "username must be 3 to 15 charecters\n"+
+        "can contain letters numbers and '_'"
+    }
+
+    let hashedPwd = await bcrypt.hash(validPwd,salts)
 
     newUser={
         firstName:firstName.toLowerCase(),
         lastName:lastName.toLowerCase(),
-        uName:acceptedUName,
-        pwd:acceptedPwd,
-        superPowers:[]
+        emailID:acceptedEmailID,
+        uName:acceptedUName.toLowerCase(),
+        pwd:hashedPwd,
+        superPowers:[],
+        posts:[],
+        comments:[]
     }
 
     const inserted = await _users.insertOne(newUser)
 
-    if(inserted.insertedCount === 0) throw "there was a problem in create() this animal could not be added"
+    if(inserted.insertedCount === 0) throw "there was a problem in create() this user could not be added"
 
     const userAdded = await get(ObjectId(inserted.insertedId).toString())
     return userAdded
 }
 
 async function addSuperPowers(id, superpowers){
+
     if(!id) throw "for addSuperPowers(id) you must provide an id"
     if(typeof id !== "string") throw "for addSuperPowers(id) id must be a string"
     if(!ObjectId.isValid(id)) throw "for addSuperPowers() object id is not of proper type"
@@ -122,7 +151,6 @@ async function addSuperPowers(id, superpowers){
     if(superPowerAdded.modifiedCount === 0) throw "there was a problem in addSuperPowers(), couldnt add this superpower"
 
     return superPowerAdded
-
 }
 
 async function login(uName, pwd){
@@ -140,14 +168,14 @@ async function login(uName, pwd){
         throw "no such username"
     }
     else{
-        if(unameFound.pwd === pwd){
+        let comparePWD = await bcrypt.compare(pwd, unameFound.pwd)
+        if(comparePWD){
             return true
         }
         else{
-            throw "incorrect password"
+            return false
         }
     }    
-
 }
 
 async function searchByName(firstName, lastName){
@@ -169,7 +197,6 @@ async function searchByName(firstName, lastName){
     if(userFound === undefined || userFound === null) throw "for searchByName() user was not found"
 
     return userFound
-
 }
 
 async function searchByUName(uName){
@@ -183,8 +210,8 @@ async function searchByUName(uName){
     if(userFound === undefined || userFound === null) throw "for searchByUName() user was not found"
 
     return userFound
-
 }
+
 async function updateName(id, newFirstName, newLastName){
     if(!id) throw "for addSuperPowers(id) you must provide an id"
     if(typeof id !== "string") throw "for addSuperPowers(id) id must be a string"
@@ -245,28 +272,30 @@ module.exports={
     searchByUName,
     updateName,
     updateUName
-    
 }
+/*
+async function main(){
 
-// async function main(){
+    let manoj = await create("manoj", "salvi", "mrunal@gmail.com", "manu", "mimadhur!@#$1A")
+    console.log(manoj)
 
-//     let manoj = await create("manoj", "salvi", "manu", "mimadhur!@#$1A")
-//     console.log(manoj)
+    let andy = await create("john", "pimple", "heavymetalani@gmail.com", "heavymetalani", "hopesh!@#$1A")
+    console.log(andy)
 
-//     let andy = await create("john", "pimple", "heavymetalani","hopesh!@#$1A")
-//     console.log(andy)
+    let atul = await create("atul", "kundan", "aakash@gmail.com", "pussydestroyer", "jaishivji!@#$1A")
+    console.log(atul)
 
-//     let atul = await create("atul","kundan","pussydestroyer","jaishivji!@#$1A")
-//     console.log(atul)
+    let pete = await create("petesh", "sherman", "protogdyt@gmail.com", "prothepsmesh", "mustdie!@#$1A")
+    console.log(pete)
 
-//     let pete = await create("petesh","sherman","prothepsmesh","mustdie!@#$1A")
-//     console.log(pete)
+    console.log(await login('prothepsmesh', 'abc124'))
 
-//     console.log(await getAll())
-//     console.log(await get(pete._id.toString()))
-//     console.log(await get(andy._id.toString()))
-//     console.log(await get(manoj._id.toString()))
-//     console.log(await get(atul._id.toString()))
+    console.log(await getAll())
+    console.log(await get(pete._id.toString()))
+    console.log(await get(andy._id.toString()))
+    console.log(await get(manoj._id.toString()))
+    console.log(await get(atul._id.toString()))
 
-// }
-// main()
+}
+main()
+*/
