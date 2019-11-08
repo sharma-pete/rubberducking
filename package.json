@@ -4,9 +4,11 @@
   "description": "a social media website project, that allows technology enthusiasts to connect",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "seed": "node seed.js"
   },
-  "author": "Prathamesh, Aishwarya, Dinesh, Saumya, Sanket",
+  "author": "Prathamesh Sharma (Back-end, MEAN Development, product Design),\n Aishwarya Sathyakumar (Graphics and front-end development),\n Dinesh Nadar (Support and Integration Development),\n Saumya Shastri (),\n Sanketkumar Shah (Support and MEAN development)",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^3.0.6",

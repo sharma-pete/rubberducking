@@ -1,7 +1,10 @@
 const mongoCollections = require("../mongoColllection")
 const users = mongoCollections.users
 const posts = mongoCollections.posts
+const comments = mongoCollections.comments
 const ObjectId = require('mongodb').ObjectID;
+
+const commentsFile = require("./comments")
 
 async function create(posterID, title, content){
 
@@ -28,18 +31,16 @@ async function create(posterID, title, content){
         "title": title,
         "author": {
             "posterID":posterID,
-            "name":userFoundById.name
+            "name":userFoundById.firstName
         },
-        "content": content        
+        "content": content,
+        comments:[]   
     }
 
     const postAdded = await _posts.insertOne(newPost)
     if(postAdded.insertedCount === 0) throw "there was a problem, could not add post"
 
-    let pushObj={
-        _id: postID,
-        title: newPost.title
-    }
+    let pushObj= postAdded.insertedId
         
     const addPostTouser = await _users.replaceOne( {_id: ObjectId(posterID)}, {$push:{posts: pushObj}})
 
@@ -78,11 +79,24 @@ async function remove(id){
     if(!ObjectId.isValid(id)) throw "for remove() object id is not of proper type"
 
     postRemoved = await get(id)
+    userID = postRemoved.author.posterID
+
     const _posts = await posts()
+    const _users = await users()
+    const _comments = await comments()
+
+    commentsArr = postRemoved.comments
+
     const removed = await _posts.deleteOne({ _id: ObjectId(id) })
 
     if(removed.deletedCount === 0) throw "there was a problem in remove() this post could not be remmoved"
+
+    for(i=0;i<commentsArr.length;i++){
+        await commentsFile.remove(commentsArr[i].toString())
+    }
     
+    await _users.updateOne({_id:ObjectId(userID)},{$pull:{posts:ObjectId(id)}})
+
     return postRemoved
 }
 
