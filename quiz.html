@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>RubberDucking</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="/css/Login.css">
+    </head>
+    <body>
+            <div class="landing_heading">
+                <h1>Quiz up!</h1>
+            </div>
+            <img src="/images/logo.jpeg" class="logo" alt="Circular Image of Logo">
+            <body>
+                <div id="myData"></div>
+                <script>
+                    fetch('question.json')
+                        .then(function (response) {
+                            return response.json();
+                        })
+                        .then(function (data) {
+                            appendData(data);
+                        })
+                        .catch(function (err) {
+                            console.log('error: ' + err);
+                        });
+                    function appendData(data) 
+                    {
+                        var mainContainer = document.getElementById("myData");
+                        for (var i = 0; i < data.length; i++) 
+                        {
+                            var div = document.createElement("div");
+                            div.innerHTML = 'Question: ' + data[i].question + 'Options: ' + data[i].firstOp + ' ' + data[i].secondOp;
+                            mainContainer.appendChild(div);
+                        }
+                    }
+                </script>
+            </body>
+    </body>
+</html>
