@@ -4,7 +4,6 @@ const users = mongoCollections.users
 const posts = mongoCollections.posts
 const ObjectId = require('mongodb').ObjectID;
 
-const postsFile=require("./posts")
 const commentsFile=require("./comments")
 
 async function get(id){
@@ -132,7 +131,8 @@ async function create(firstName, lastName, emailID, uName, pwd){
         pwd:hashedPwd,
         superPowers:[],
         posts:[],
-        comments:[]
+        comments:[],
+        score:score
     }
 
     const inserted = await _users.insertOne(newUser)
