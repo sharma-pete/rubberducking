@@ -4,7 +4,7 @@
   "description": "a social media website project, that allows technology enthusiasts to connect",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index"
   },
   "author": "Prathamesh, Aishwarya, Dinesh, Saumya, Sanket",
   "license": "ISC",
