@@ -4,10 +4,14 @@ const easy = questions.easy;
 // console.log(num);
 // console.log(easy.length);
 
-const qkey = getRandom(easy,3);
+let qkey = getRandom(easy,1);
+qkey.push.apply(qkey, getRandom(medium,1));
+qkey.push.apply(qkey, getRandom(hard,1));
+
+const key = qkey;
 
 //Picking random 3 easy questions
-//function to randomly generate subarray of any array with n number of ranbom elements
+//function to randomly generate subarray of any array with n number of random elements
 function getRandom(arr, n) {
   var result = new Array(n),
       len = arr.length,
@@ -26,7 +30,7 @@ const constructorMethod = app => {
 
     app.get("*", async (req, res) => {     
       console.log(questions)
-      res.render("layouts/main", qkey);
+      res.render("layouts/main", key);
 
     });
   };
