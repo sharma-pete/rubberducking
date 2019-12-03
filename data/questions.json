@@ -1,101 +1,121 @@
 {
     "easy":[
         {
+            "id":1,
             "question":"Term Data Structure refers to _________ and interrelationship between them.",
             "options":["None of these", "Coding Standards", "Organization of data element", "Programming Language Statement"],
             "answer":"Organization of data element"
         },
         {
+            "id":2,
             "question":"Data is nothing but ____________.",
             "options":["Programming Statement", "Piece of Information", "None of these", "Bunch of Information"],
             "answer":"Piece of Information"
         },
         {
+            "id":3,
             "question":"Single and non-decomposable data is called ______________.",
             "options":["Textual Data", "Atomic Data", "Composite Data", "Numeric Data"],
             "answer":"Atomic Data"
         },
         {
+            "id":4,
             "question":"Stack in Data Structure is ___________.",
             "options":["None of these", "LIFO", "FIFO", "LILO"],
             "answer":"LIFO"
         },
         {
+            "id":5,
             "question":"In the stack process of inserting an element in the stack is called as ___________.",
             "options":["Push", "Evaluation", "Pop", "Create"],
             "answer":"Push"
         },
         {
+            "id":6,
             "question":"Generally collection of Nodes is called as __________.",
             "options":["Heap", "Linked List", "Stack", "Pointer"],
             "answer":"Linked List"
         },
         {
+            "id":7,
             "question":"Queue in Data Structure is ___________.",
             "options":["None of these", "LIFO", "FIFO", "LILO"],
             "answer":"FIFO"
         },
         {
+            "id":8,
             "question":"A program is a sequence of ________________ written in a programming language.",
             "options":["Code Word", "Functions", "Instructions", "Lines"],
             "answer":"Instructions"
         },
         {
+            "id":9,
             "question":"Each program can have ___________.",
             "options":["Functions", "Output", "All of These", "Input"],
             "answer":"All of These"
         },
         {
+            "id":10,
             "question":"Operation of inserting data into program and taking data out of program is called _____________ operation.",
             "options":["Input Operation", "None of these", "I/O Operation", "Output Operation"],
             "answer":"I/O Operation"
         },
         {
+            "id":11,
             "question":"Computer that requests the resources or data from other computer is called as ________ computer.",
             "options":["Client", "Server", "scrtpt", "application"],
             "answer":"Client"
         },
         {
+            "id":12,
             "question":"Software which allows user to view the webpage is called as __________.",
             "options":["Operating System", "Interpreter", "Internet Browser", "Website"],
             "answer":"Internet Browser"
         },
         {
+            "id":13,
             "question":"Which of the following website is used to search other website by typing a keyword ?",
             "options":["None of these", "Routers", "Social Networks", "Search Engine"],
             "answer":"Search Engine"
         },
         {
+            "id":14,
             "question":"Database is collection of ____.",
             "options":["Modules", "Programs", "None of these", "Data"],
             "answer":"Data"
         },
         {
+            "id":15,
             "question":"DBMS should provide following feature(s) ______.",
             "options":["Protect data from system crash", "Authorized access", "All of these", "Safety of the information stored"],
             "answer":"All of these"
         },
         {
+            "id":16,
             "question":"Javascript is _________ language.",
             "options":["Programming", "Application", "Scripting", "None of These"],
             "answer":"Scripting"
         },
         {
+            "id":17,
             "question":"JavaScript is designed for following purpose -",
             "options":["To Perform Server Side Scripting Opertion", "To Execute Query Related to DB on Server", "To Style HTML Pages", "To add interactivity to HTML Pages."],
             "answer":"To add interactivity to HTML Pages"
         },
         {
+            "id":18,
             "question":"Which of the statement we need to write , in order to check any condition.",
             "options":["Break", "If", "Continue", "exit"],
             "answer":"If"
         },
         {
+            "id":19,
             "question":"Which of the following is not an example of looping statement ?",
             "options":["for", "do-while", "while", "switch"],
             "answer":"switch"
         },
         {
+            "id":20,
             "question":"Which of the following tool used to execute java code.",
             "options":["java", "javac", "rmic", "javadoc"],
             "answer":"java"
@@ -104,101 +124,121 @@
 
     "medium":[
         {
+            "id":21,
             "question":"'===' operator is _______________.",
             "options":["Is identical (is equal to and is of the same type)", "Is equal to", "None of these", "Is identical (is equal to and is of the different type)"],
             "answer":"Is identical (is equal to and is of the same type)"
         },
         {
+            "id":22,
             "question":"'+=' operator can operate on following data values.",
             "options":["Float", "String", "All Options", "Integer"],
             "answer":"All Options"
         },
         {
+            "id":23,
             "question":"'Add and Assignment' operator is shown by this symbol.",
             "options":["==+", "+=", "+==", "=+"],
             "answer":"+="
         },
         {
+            "id":24,
             "question":"Which of the following is not an logical operator ?",
             "options":["!", "&&", "|", "||"],
             "answer":"|"
         },
         {
+            "id":25,
             "question":"'++' is __________ type of operator.",
             "options":["Binary", "None of these", "Unary", "Ternary"],
             "answer":"Unary"
         },
         {
+            "id":26,
             "question":"'++' can operate only on ________________.",
             "options":["None of these", "Text", "Variables", "Constants"],
             "answer":"Variables"
         },
         {
+            "id":27,
             "question":"Integer Variable + Character Variable + Undefined Variable = ______________ Value",
             "options":["Character", "Integer", "Undefined Value", "Text / String Value"],
             "answer":"Undefined Value"
         },
         {
+            "id":28,
             "question":"Which of the following is not a comparison operator ?",
             "options":["<=", ">=", "++", "=="],
             "answer":"++"
         },
         {
+            "id":29,
             "question":"Adding String and Integer always results in _________.",
             "options":["String", "None of these", "Character", "Integer"],
             "answer":"String"
         },
         {
+            "id":30,
             "question":"Variable can hold ________ value at a time",
             "options":["Double", "None of these", "Multiple", "Single"],
             "answer":"Single"
         },
         {
+            "id":31,
             "question":"We can declare ___________ at a time. Select most appropriate option.",
             "options":["More than One Variables", "One Variable Only", "One or more Variables", "None of these"],
             "answer":"One or more Variables"
         },
         {
+            "id":32,
             "question":"Spaces,Punctuation marks are called as __________ Symbols in JavaScript.",
             "options":["Mandetory", "None of these", "Punctual", "Special"],
             "answer":"Special"
         },
         {
+            "id":33,
             "question":"Initialization of variable can be done by writing _____ operator in between variable name and operand value.",
             "options":["==", "=", "EQUALS", "VALUE"],
             "answer":"="
         },
         {
+            "id":34,
             "question":"Multiple Declarations of variables are separated by ___________ symbol",
             "options":["Colon", "Asterisk", "Comma", "Semicolon"],
             "answer":"Comma"
         },
         {
+            "id":35,
             "question":"Local Variables are Destroyed as soon as ______________.",
             "options":["control comes outside the method", "user closes the browser", "page gets completely loaded", "None of these"],
             "answer":"control comes outside the method"
         },
         {
+            "id":36,
             "question":"What will be the postfix expression for following infix expression 'b * c + d / e'",
             "options":["bc*de/+", "bcd*e/+", "bc*de+/", "b*cde/+"],
             "answer":"bc*de/+"
         },
         {
+            "id":37,
             "question":"Stack cannot be used to -",
             "options":["Evaluation of Expression in Postfix form", "Implementation of Recursion", "Reversing String", "Allocating Resources and Scheduling"],
             "answer":"Allocating Resources and Scheduling"
         },
         {
+            "id":38,
             "question":"Which of the following is useful in the implementation of quick sort ?",
             "options":["Stack", "List", "Queue", "Set"],
             "answer":"Stack"
         },
         {
+            "id":39,
             "question":"Stack can be implemented using ___________ and _________.",
             "options":["Array and Linked List", "Trees and Linked List", "Array and Graphs", "Queue and Graphs"],
             "answer":"Array and Linked List"
         },
         {
+            "id":40,
             "question":"HTML tags are used to describe document ___________.",
             "options":["Language", "Definition", "None of these", "Content"],
             "answer":"Content"
@@ -207,104 +247,64 @@
 
     "hard":[
         {
+            "id":41,
             "question":"Consider the Singly linked list having n elements. What will be the time taken to add an node at the end of linked list if Pointer is initially pointing to first node of the list.",
             "options":["O(n)", "O(1)", "O(n-1)", "O(n2)"],
             "answer":"O(n-1)"
         },
         {
+            "id":42,
             "question":"Pointer is pointing to the first element of the Node then time require to Insert Element to second position is __________.",
             "options":["O(1)", "O(n2)", "O(n)", "O(n-1)"],
             "answer":"O(1)"
         },
         {
+            "id":43,
             "question":"Consider a linked list of n elements. What is the time taken to insert an element after element pointed by same pointer ?",
             "options":["O(n)", "O(log n)", "O(n-1)", "O(1)"],
             "answer":"O(1)"
         },
         {
+            "id":44,
             "question":"The concatenation of two lists is to be performed in O(1) time. Which of the following implementations of a list could be used ?",
             "options":["Doubly Linked List", "Circular Doubly Linked List", "Singly Linked List", "Array Implementation of List"],
             "answer":"Circular Doubly Linked List"
         },
         {
+            "id":45,
             "question":"Time require to find any element of the linked list is _______.",
             "options":["O(n)", "O(1)", "None of these", "O(n^2)"],
             "answer":"O(n)"
         },
         {
-            "question":"",
-            "options":[],
-            "answer":""
+            "id":46,
+            "question":"Which of the following is true about linked list implementation of queue?",
+            "options":["in push operation, if new nodes are inserted at the beginning of linked list, then in pop operation, nodes must be removed from end", "In push operation, if new nodes are inserted at the end, then in pop operation, nodes must be removed from the beginning", "Both of the above", "None of the above"],
+            "answer":"Both of the above"
         },
         {
-            "question":"",
-            "options":[],
-            "answer":""
+            "id":47,
+            "question":"Which of the following is correct recurrence for worst case of Binary Search?",
+            "options":["T(n) = 2T(n/2) + O(1) and T(1) = T(0) = O(1)", "T(n) = T(n-1) + O(1) and T(1) = T(0) = O(1)", "T(n) = T(n/2) + O(1) and T(1) = T(0) = O(1)", "T(n) = T(n-2) + O(1) and T(1) = T(0) = O(1)"],
+            "answer":"T(n) = T(n/2) + O(1) and T(1) = T(0) = O(1)"
         },
         {
-            "question":"",
-            "options":[],
-            "answer":""
+            "id":48,
+            "question":"Which of the following is not a stable sorting algorithm in its typical implementation.",
+            "options":["Insertion Sort", "Merge Sort", "Quick Sort", "Bubble Sort"],
+            "answer":"Quick Sort"
         },
         {
-            "question":"",
-            "options":[],
-            "answer":""
+            "id":49,
+            "question":"Suppose we are sorting an array of eight integers using quicksort, and we have just finished the first partitioning with the array looking like this:\n2  5  1  7  9  12  11  10\n Which statement is correct?",
+            "options":["The pivot could be either the 7 or the 9.", "The pivot could be the 7, but it is not the 9", "The pivot is not the 7, but it could be the 9", "Neither the 7 nor the 9 is the pivot."],
+            "answer":"The pivot could be either the 7 or the 9."
         },
         {
-            "question":"",
-            "options":[],
-            "answer":""
-        },
-        {
-            "question":"",
-            "options":[],
-            "answer":""
-        },
-        {
-            "question":"",
-            "options":[],
-            "answer":""
-        },
-        {
-            "question":"",
-            "options":[],
-            "answer":""
-        },
-        {
-            "question":"",
-            "options":[],
-            "answer":""
-        },
-        {
-            "question":"",
-            "options":[],
-            "answer":""
-        },
-        {
-            "question":"",
-            "options":[],
-            "answer":""
-        },
-        {
-            "question":"",
-            "options":[],
-            "answer":""
-        },
-        {
-            "question":"",
-            "options":[],
-            "answer":""
-        },
-        {
-            "question":"",
-            "options":[],
-            "answer":""
-        },
-        {
-            "question":"",
-            "options":[],
-            "answer":""
+            "id":50,
+            "question":"Which of the following operations is not O(1) for an array of sorted data. You may assume that array elements are distinct.",
+            "options":["Find the ith largest element", "Delete an element", "Find the ith smallest element", "All of the above"],
+            "answer":"Delete an element"
         }
     ]
 }
