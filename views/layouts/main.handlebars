@@ -14,18 +14,23 @@
             <main>
                 <img src="/public/images/logo.jpeg" class="logo" alt="Circular Image of Logo">
                 <p>Questions:</p>
-                
-                <div class="container", id="Questions">
-                {{#each this}}
-                    <p>{{ question }}</p>
-                    {{!-- <input type="radio" name="q1" value="a"> {{ options }}<br> --}}
-                    {{!-- <input type="radio" name="q1" value="b"> {{ secondOp }}<br> --}}
-                    {{#each options}}
-                        <input type="radio" name="q1" value="a"> {{ this }}<br>
+                <form id="ansScore"> 
+                    <div class="container", id="Questions">
+                    {{#each this}}
+                        <p>{{ question }}</p>
+                        {{!-- <input type="radio" name="q1" value="a"> {{ options }}<br> --}}
+                        {{!-- <input type="radio" name="q1" value="b"> {{ secondOp }}<br> --}}
+                        {{#each options}}
+                            {{!-- <input type="radio" name="q1" value="a"> {{ this }}<br> --}}
+                            <input type="radio" name= {{question}} value= {{this}}> {{ this }}<br>
+                        {{/each}}
                     {{/each}}
-                {{/each}}
-                </div>
+                    </div>
+                    <button type="submit">Generate Score</button>
+                </form>
+                <ol id="Status"></ol>
             </main>
             {{!-- <script src="/public/displayQs.js"></script> --}}
+            <script src="/public/genScore.js"></script>
     </body>
 </html>
