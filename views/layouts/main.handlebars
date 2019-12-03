@@ -18,8 +18,11 @@
                 <div class="container", id="Questions">
                 {{#each this}}
                     <p>{{ question }}</p>
-                    <input type="radio" name="q1" value="a"> {{ firstOp }}<br>
-                    <input type="radio" name="q1" value="b"> {{ secondOp }}<br>
+                    {{!-- <input type="radio" name="q1" value="a"> {{ options }}<br> --}}
+                    {{!-- <input type="radio" name="q1" value="b"> {{ secondOp }}<br> --}}
+                    {{#each options}}
+                        <input type="radio" name="q1" value="a"> {{ this }}<br>
+                    {{/each}}
                 {{/each}}
                 </div>
             </main>
