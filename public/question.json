@@ -1,0 +1,17 @@
+[
+    {
+        "question": "Human?",
+        "firstOp": "Yes",
+        "secondOp": "No"
+    },
+    {
+        "question": "Student?",
+        "firstOp": "Yes",
+        "secondOp": "No"
+    },
+    {
+        "question": "Gender",
+        "firstOp": "Male",
+        "secondOp": "Female"
+    }
+]
