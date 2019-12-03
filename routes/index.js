@@ -7,6 +7,7 @@ const easy = questions.easy;
 const qkey = getRandom(easy,3);
 
 //Picking random 3 easy questions
+//function to randomly generate subarray of any array with n number of ranbom elements
 function getRandom(arr, n) {
   var result = new Array(n),
       len = arr.length,
