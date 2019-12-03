@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>RubberDucking</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="/public/Login.css">
+    </head>
+    <body>
+            <header class="landing_heading">
+                <h1>Quiz up!</h1>
+            </header>
+            <main>
+                <img src="/public/images/logo.jpeg" class="logo" alt="Circular Image of Logo">
+                <p>Questions:</p>
+                
+                <div class="container", id="Questions">
+                {{#each this}}
+                    <p>{{ question }}</p>
+                    <input type="radio" name="q1" value="a"> {{ firstOp }}<br>
+                    <input type="radio" name="q1" value="b"> {{ secondOp }}<br>
+                {{/each}}
+                </div>
+            </main>
+            {{!-- <script src="/public/displayQs.js"></script> --}}
+    </body>
+</html>
