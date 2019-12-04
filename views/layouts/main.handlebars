@@ -14,7 +14,7 @@
             <main>
                 <img src="/public/images/logo.jpeg" class="logo" alt="Circular Image of Logo">
                 <p>Questions:</p>
-                <form id="ansScore"> 
+                <form id="ansScore" action="./main.handlebars" method="post"> 
                     <div class="container", id="Questions">
                     {{#each this}}
                         <p>{{ question }}</p>
@@ -23,14 +23,15 @@
                         {{#each options}}
                             {{!-- <input type="radio" name="q1" value="a"> {{ this }}<br> --}}
                             <input type="radio" name= {{question}} value= {{this}}> {{ this }}<br>
+                            <input type="hidden" name="question" value="{{question}}"/>
                         {{/each}}
                     {{/each}}
                     </div>
                     <button type="submit">Generate Score</button>
                 </form>
-                <ol id="Status"></ol>
+                <ul id="Status"></ul>
             </main>
             {{!-- <script src="/public/displayQs.js"></script> --}}
-            <script src="/public/genScore.js"></script>
+            {{!-- <script src="/public/genScore.js"></script> --}}
     </body>
 </html>

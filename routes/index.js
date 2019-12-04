@@ -33,6 +33,14 @@ const constructorMethod = app => {
       res.render("layouts/main", key);
 
     });
+
+    app.post("*", async (req, res) => {     
+      console.log(req.body);
+      let arr = req.body;
+      for(let i = 0; i<12; i++)
+      {console.log(arr[i]);}
+      //check for 3 checked radio before generatiom
+    });
   };
   
   module.exports = constructorMethod;
