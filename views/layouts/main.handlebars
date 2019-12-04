@@ -14,16 +14,18 @@
             <main>
                 <img src="/public/images/logo.jpeg" class="logo" alt="Circular Image of Logo">
                 <p>Questions:</p>
-                <form id="ansScore" action="./main.handlebars" method="post"> 
-                    <div class="container", id="Questions">
+                <form id="ansScore" action="/" method="post"> 
+                    <div class="quiz", id="Questions">
                     {{#each this}}
                         <p>{{ question }}</p>
                         {{!-- <input type="radio" name="q1" value="a"> {{ options }}<br> --}}
                         {{!-- <input type="radio" name="q1" value="b"> {{ secondOp }}<br> --}}
+                        <input type="hidden" name="question" value="{{question}}"/>
                         {{#each options}}
                             {{!-- <input type="radio" name="q1" value="a"> {{ this }}<br> --}}
-                            <input type="radio" name= {{question}} value= {{this}}> {{ this }}<br>
-                            <input type="hidden" name="question" value="{{question}}"/>
+                            {{!-- <input type="radio" name= {{question}} value= {{this}}> {{ this }}<br>
+                            <input type="hidden" name="question" value="{{question}}"/> --}}
+                            <input type="radio"  name="{{../question}}" value="{{this}}"> {{ this }}<br>
                         {{/each}}
                     {{/each}}
                     </div>

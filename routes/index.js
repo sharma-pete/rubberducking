@@ -3,12 +3,29 @@ const easy = questions.easy;
 // const num = Math.floor(Math.random() * easy.length);
 // console.log(num);
 // console.log(easy.length);
+const medium = questions.medium;
+const hard = questions.hard;
 
 let qkey = getRandom(easy,1);
 qkey.push.apply(qkey, getRandom(medium,1));
 qkey.push.apply(qkey, getRandom(hard,1));
 
 const key = qkey;
+
+let anskey = [];
+
+console.log("QUES")
+for(let i = 0; i<3; i++)
+{
+  console.log(key[i].question);
+  console.log(key[i].answer);
+  anskey.push(key[i].answer);
+}
+console.log("ANSWER")
+for(let i = 0; i<3; i++)
+{
+  console.log(anskey[i]);
+}
 
 //Picking random 3 easy questions
 //function to randomly generate subarray of any array with n number of random elements
@@ -36,9 +53,24 @@ const constructorMethod = app => {
 
     app.post("*", async (req, res) => {     
       console.log(req.body);
-      let arr = req.body;
-      for(let i = 0; i<12; i++)
-      {console.log(arr[i]);}
+      let arr = req.body.question;
+    let ans = [];
+    for(let i = 0; i<3; i++)
+    {
+      console.log(arr[i] + " " + req.body[arr[i]]);
+      ans.push(req.body[arr[i]]);
+    }
+    console.log("ANSWERed")
+    for(let i = 0; i<3; i++)
+    {
+      console.log(ans[i]);
+    }
+    let score = 0;
+    for(let i = 0; i<3; i++)
+    {
+      if(ans[i] == anskey[i]) {score++;}
+    }
+    console.log("SCORE =  " +score);
       //check for 3 checked radio before generatiom
     });
   };
