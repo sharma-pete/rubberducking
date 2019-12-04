@@ -52,26 +52,26 @@ const constructorMethod = app => {
     });
 
     app.post("*", async (req, res) => {     
-      console.log(req.body);
+      //console.log(req.body);
       let arr = req.body.question;
-    let ans = [];
-    for(let i = 0; i<3; i++)
-    {
-      console.log(arr[i] + " " + req.body[arr[i]]);
-      ans.push(req.body[arr[i]]);
-    }
-    console.log("ANSWERed")
-    for(let i = 0; i<3; i++)
-    {
-      console.log(ans[i]);
-    }
-    let score = 0;
-    for(let i = 0; i<3; i++)
-    {
-      if(ans[i] == anskey[i]) {score++;}
-    }
-    console.log("SCORE =  " +score);
-      //check for 3 checked radio before generatiom
+      let ans = [];  //marked options
+      let score = 0;  //generated score
+      for(let i = 0; i<3; i++)
+      {
+        //console.log(arr[i] + " " + req.body[arr[i]]);
+        ans.push(req.body[arr[i]]); //marked answers
+      }
+      // console.log("ANSWERed")
+      // for(let i = 0; i<3; i++)
+      // {
+      //   console.log(ans[i]);
+      // }
+      for(let i = 0; i<3; i++)
+      {
+        if(ans[i] == anskey[i]) {score++;} //comparing rights options to the marked options
+      }
+      console.log("SCORE =  " +score);
+      //check for 3 checked radio before generatiom, unmarked is counted as zero
     });
   };
   
